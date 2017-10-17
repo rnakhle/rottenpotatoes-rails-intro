@@ -11,7 +11,21 @@ class MoviesController < ApplicationController
   end
 
   def index
+    header = params[:header]
+    if params[:title]
+      @movies = movie.reorder[:title].all
+    elsif
+       params[:rating]
+      @movies = movie.reorder[:rating].all
+    elsif
+       params[:description]
+      @movies = movie.reorder[:description].all
+    elsif
+       params[:release_date]
+      @movies = movie.reorder[:release_date_header].all
+    else
     @movies = Movie.all
+    end
   end
 
   def new

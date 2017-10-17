@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      %th= link_to "Movie Title", movies_path(:header=>'title'), :id=>'title_header'
       %th Rating
       %th Release Date
       %th More Info
@@ -15,5 +15,6 @@
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
+       
 
 = link_to 'Add new movie', new_movie_path
